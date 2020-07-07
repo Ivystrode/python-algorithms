@@ -20,19 +20,33 @@ print("====binary search on same data====")
 def binary_search(data, target):
     low = 1
     high = len(data) - 1
+    print("starting low: " + str(low) + " starting high: " + str(high))
 
     while low <= high:
         mid = (low + high) // 2
+        print("\nstart loop")
+        print("====================")
+        print("mid: " + str(mid) + " low: " + str(low) + " high: " + str(high))
         if target == data[mid]:
             print("got it")
             result = mid+1
             print(result)
             return True
         elif target < data[mid]:
+            print("target less than mid")
             high = mid - 1
+            print("high = mid-1")
+            print("high:")
+            print(high)
+            print("mid:")
             print(mid)
         else:
+            print("target more than mid")
             low = mid + 1
+            print("low = mid +1")
+            print("low:")
+            print(low)
+            print("mid:")
             print(mid)
     #print(mid)
     return False
@@ -58,4 +72,4 @@ def recursive_binary_search(data, target, low, high):
             print(mid)
             return recursive_binary_search(data, target, mid+1, high)
 
-recursive_binary_search(data, target, 1, len(data)-1)
+#recursive_binary_search(data, target, 1, len(data)-1)
