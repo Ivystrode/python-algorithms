@@ -11,7 +11,6 @@ with open('word_list.txt', 'r') as word_list_file:
 
 secret_word = random.choice(word_list)
 
-print(secret_word)
 
 guesses = 0
 secret_word_length = len(secret_word)
@@ -39,26 +38,18 @@ def char_checker(guess):
         else:
             guesses += 1
             print(f"incorrect - wrong guesses: {guesses}")
-            # time.sleep(2)
 
 print("Let's play Hangman!")
 print("Your word to guess: ")
 
 while playing:
     time.sleep(1)
-    # print("=====")
-    # print("Number of incorrect guesses: " + str(guesses))
     print(''.join(word))
 
     if ''.join(word) == secret_word:
         print("Congratulations you win")
         playing = False
         break
-
-    # if guesses >= 7:
-    #     print("You lose")
-    #     playing = False
-    #     break
 
     if guesses < 7:
 
@@ -77,6 +68,7 @@ while playing:
             char_checker(guess)
     else:
         print("You lose")
+        print("The answer was " + secret_word)
         playing = False
 
 
