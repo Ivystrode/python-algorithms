@@ -13,7 +13,7 @@ Files:
     - Uses recursive binary search algorithm to find a number by asking higher/lower.
 
 - hangman.py
-    - JHub mod 3 assignment to create a game of hangman.
+    - JHub mod 3 assignment to create a game of hangman. Requires word_list.txt.
 
 - reminder.py
     - quick play with making a reminder function
