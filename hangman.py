@@ -24,7 +24,7 @@ displayed_word = list('*'*len(secret_word))
 
 print("Let's play Hangman!")
 time.sleep(2)
-print("Pick a letter, or type 'guesses' to see what you've already guessed")
+print("Pick a letter, or if you think you know the word, write it out")
 time.sleep(2)
 print("\n")
 
@@ -34,12 +34,11 @@ print("\n")
 def char_checker(guess):
     global guesses
 
-    if guess in all_guesses:
+    if guess in all_guesses or guess in displayed_word:
         print("You've already guessed that one!")
         time.sleep(1)
 
     else:
-        all_guesses.append(guess)
 
         if guess in word_characters:
             for i, char in enumerate(word_characters):
@@ -48,7 +47,9 @@ def char_checker(guess):
 
         else:
             guesses += 1
+            all_guesses.append(guess)
             print(f"incorrect - wrong guesses: {guesses}/7")
+            print("Used letters: " + ' - '.join(all_guesses))
 
 
 # ==========Game Loop==========
@@ -73,15 +74,11 @@ while playing:
             print("Congratulations you win")
             playing = False
 
-        elif guess == "guesses":
-            print("Guesses so far:")
-            print(all_guesses)
-
         else:
             char_checker(guess)
     else:
-        print("The answer was " + secret_word)
-        print("You lose")
+        print("The answer was: " + secret_word)
+        print("You lose")        
         playing = False
 
 

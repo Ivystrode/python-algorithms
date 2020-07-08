@@ -7,7 +7,7 @@ hpn = int(input("Pick a number to be the maximum value: "))
 lpn = 1
 possibles = list(range(lpn, hpn+1))
 
-gamechoice = input("Do you want to pick a random number or let the computer do it?\n")
+gamechoice = input("Do you want to play or watch the computer do it?\n")
 
 def countdown(seconds):
     while seconds > 0:
@@ -68,8 +68,18 @@ if 'user' in gamechoice or 'me' in gamechoice:
     print("Think of a number between 1 and " + str(hpn))
     countdown(5)
     guess(possibles, lpn, hpn)
+
 else:
-    target = random.choice(possibles)
+    israndom = input("User pick a number or shall I?\n")
+
+    if 'user' in israndom or 'me' in israndom or 'i will' in israndom:
+        target = int(input("Enter a number between 1 and " + str(hpn) + "\n"))
+        if target > hpn or target < lpn:
+            print("you need to pick a number between " + str(lpn) + " and " + str(hpn))
+            exit()
+    else:
+        target = random.choice(possibles)
+
     print("Secret number: " + str(target))
     print("Script will now try to guess what the secret number is")
     time.sleep(2)
