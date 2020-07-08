@@ -22,19 +22,23 @@ def guess(possibles, lpn, hpn, *args):
     while number_known == False:
         if args:
             mid = (hpn + lpn) // 2
-            print("Checking " + str(mid))
+            print("\nChecking " + str(mid))
+            time.sleep(0.5) # not necessary, just so you can watch it work through it
 
             if mid < args[0]:
                 lpn = mid
-                print("Guessing higher\n")
+                print("Too low; guess higher")
+                time.sleep(0.5) # not necessary, just so you can watch it work through it
                 guesses += 1
                 guess(possibles, lpn, hpn, target)
             elif mid > args[0]:
                 hpn = mid
-                print("Guessing lower\n")
+                print("Too high; guess lower")
+                time.sleep(0.5) # not necessary, just so you can watch it work through it
                 guesses += 1
                 guess(possibles, lpn, hpn, target)
             else:
+                time.sleep(0.5)
                 print("Completed")
                 print("Secret number is: " + str(mid))
                 print("actual answer: " + str(target))
