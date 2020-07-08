@@ -19,8 +19,8 @@ hidden_word = list(secret_word)
 word = list('*'*secret_word_length)
 
 def char_checker(guess):
-    global word
-    global hidden_word
+    # global word
+    # global hidden_word
     global guesses
 
     if guess in all_guesses:
@@ -37,7 +37,7 @@ def char_checker(guess):
 
         else:
             guesses += 1
-            print(f"incorrect - wrong guesses: {guesses}")
+            print(f"incorrect - wrong guesses: {guesses}/7")
 
 print("Let's play Hangman!")
 print("Your word to guess: ")
