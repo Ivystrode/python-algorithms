@@ -3,28 +3,33 @@ import random
 
 number_known = False
 guesses = 0
-hpn = 100000000
+hpn = int(input("Pick a number to be the maximum value: "))
 lpn = 1
 possibles = list(range(lpn, hpn+1))
-target = random.choice(possibles)
 
-gamechoice = input("user pick number or random number?")
+gamechoice = input("Do you want to pick a random number or let the computer do it?\n")
+
+def countdown(seconds):
+    while seconds > 0:
+        time.sleep(1)
+        print(str(seconds) + "...")
+        seconds -= 1
 
 
 def guess(possibles, lpn, hpn, *args):
     global number_known
     global guesses
     while number_known == False:
-        if target:
+        if args:
             mid = (hpn + lpn) // 2
             print("Checking " + str(mid))
 
-            if mid < target:
+            if mid < args[0]:
                 lpn = mid
                 print("Guessing higher\n")
                 guesses += 1
                 guess(possibles, lpn, hpn, target)
-            elif mid > target:
+            elif mid > args[0]:
                 hpn = mid
                 print("Guessing lower\n")
                 guesses += 1
@@ -33,12 +38,11 @@ def guess(possibles, lpn, hpn, *args):
                 print("Completed")
                 print("Secret number is: " + str(mid))
                 print("actual answer: " + str(target))
-                print("That took " + str(guesses) + " guesses")
+                print("That took " + str(guesses+1) + " guesses")
                 number_known = True
 
-
-
         else:
+            time.sleep(1)
             mid = (hpn + lpn) // 2
             answer = input("Is your number " + str(mid) + "\n")
 
@@ -56,11 +60,12 @@ def guess(possibles, lpn, hpn, *args):
             else:
                 print("Unknown input")
 
-if 'user' in gamechoice:
-    print("Think of a number between 1 and 1,000,000")
-    time.sleep(2)
+if 'user' in gamechoice or 'me' in gamechoice:
+    print("Think of a number between 1 and " + str(hpn))
+    countdown(5)
     guess(possibles, lpn, hpn)
 else:
+    target = random.choice(possibles)
     print("Secret number: " + str(target))
     print("Script will now try to guess what the secret number is")
     time.sleep(2)
