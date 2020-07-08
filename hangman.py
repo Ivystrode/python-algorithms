@@ -22,6 +22,12 @@ all_guesses = []
 word_characters = list(secret_word)
 displayed_word = list('*'*len(secret_word))
 
+print("Let's play Hangman!")
+time.sleep(2)
+print("Pick a letter, or type 'guesses' to see what you've already guessed")
+time.sleep(2)
+print("\n")
+
 # ==========Input processing==========
 # Check the letter the user has picked to see if it is in the secret word
 
@@ -49,13 +55,6 @@ def char_checker(guess):
 # Prompt the user to choose a character and check it off against the secret word.
 # Terminates the script if user uses up their 7 guesses or if they get the word.
 # Uses the sleep function to be slightly enhance user experience
-
-
-print("Let's play Hangman!")
-time.sleep(2)
-print("Pick a letter, or type 'guesses' to see what you've already guessed")
-time.sleep(2)
-print("\n")
 
 while playing:
     time.sleep(1)
