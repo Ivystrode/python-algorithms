@@ -10,7 +10,7 @@ Files:
     - Prints different words depending on what a number is divisible by. Esoteric.
 
 - guessing_game.py
-    - Uses recursive binary algorithm to find a number by asking higher/lower.
+    - Uses recursive binary search algorithm to find a number by asking higher/lower.
 
 - hangman.py
     - JHub mod 3 assignment to create a game of hangman.
