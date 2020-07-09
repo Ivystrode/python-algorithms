@@ -6,10 +6,14 @@ import time
 
 word_list = []
 
-with open('word_list.txt', 'r') as word_list_file:
-    for line in word_list_file:
-        line = line.strip()
-        word_list.append(line)
+try:
+    with open('word_list.txt', 'r') as word_list_file:
+        for line in word_list_file:
+            line = line.strip()
+            word_list.append(line)
+except:
+    print("word_list.txt not found. Please make sure this file is in the same directory.")
+    exit()
 
 # ==========Game initialisation==========
 # Randomly select a word from word_list and initialise all game attributes
