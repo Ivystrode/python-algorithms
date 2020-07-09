@@ -21,8 +21,8 @@ except:
 secret_word = random.choice(word_list)
 
 playing = True
-guesses = 0
-all_guesses = []
+guesses = 0 # number of incorrect guesses. Can be removed and len(all_guesses) used instead; script functions identically.
+all_guesses = [] # list of incorrect letters. Both included for demonstration.
 word_characters = list(secret_word)
 displayed_word = list('*'*len(secret_word))
 
