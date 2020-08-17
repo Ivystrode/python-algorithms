@@ -20,3 +20,9 @@ Files:
 
 - basic_mins py and ipynb
     - Most algorithms being written in the ipynb from now on
+
+copypaste for quick git push
+git add .
+git commit -m "update"
+git push origin master
+git status
