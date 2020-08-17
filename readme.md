@@ -17,3 +17,6 @@ Files:
 
 - reminder.py
     - quick play with making a reminder function
+
+- basic_mins py and ipynb
+    - Most algorithms being written in the ipynb from now on
